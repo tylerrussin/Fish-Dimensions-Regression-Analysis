@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "/Users/gleb/Documents/visualStudioCode/AI-labs/fishgrow-lab01/run.py", line 93, in <module>
+    app.run_server(debug=True)
+    ^^^^^^^^^^^^^^
+  File "/Users/gleb/.local/share/virtualenvs/fishgrow-lab01-XhAGmZ3i/lib/python3.13/site-packages/dash/_obsolete.py", line 22, in __getattr__
+    raise err.exc(err.message)
+dash.exceptions.ObsoleteAttributeException: app.run_server has been replaced by app.run

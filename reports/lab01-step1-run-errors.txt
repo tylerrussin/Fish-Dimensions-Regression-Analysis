@@ -1,0 +1,18 @@
+Traceback (most recent call last):
+  File "/Users/gleb/Documents/visualStudioCode/AI-labs/fishgrow-lab01/run.py", line 12, in <module>
+    navbar = dbc.NavbarSimple(
+        brand='Fish Dimensions Regression Analysis',
+    ...<7 lines>...
+        dark=False
+    )
+  File "/Users/gleb/.local/share/virtualenvs/fishgrow-lab01-XhAGmZ3i/lib/python3.13/site-packages/dash/development/base_component.py", line 504, in wrapper
+    return func(*args, **kwargs)
+  File "/Users/gleb/.local/share/virtualenvs/fishgrow-lab01-XhAGmZ3i/lib/python3.13/site-packages/dash_bootstrap_components/_components/NavbarSimple.py", line 135, in __init__
+    super(NavbarSimple, self).__init__(children=children, **args)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/gleb/.local/share/virtualenvs/fishgrow-lab01-XhAGmZ3i/lib/python3.13/site-packages/dash/development/base_component.py", line 204, in __init__
+    raise TypeError(
+    ...<2 lines>...
+    )
+TypeError: The `dash_bootstrap_components.NavbarSimple` component (version 2.0.4) received an unexpected keyword argument: `light`
+Allowed arguments: brand, brand_external_link, brand_href, brand_style, children, className, class_name, color, dark, expand, fixed, fluid, id, key, links_left, sticky, style

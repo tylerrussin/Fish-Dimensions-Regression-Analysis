@@ -11,6 +11,11 @@ statsmodels = "*"
 gunicorn = "*"
 
 [dev-packages]
+ipykernel = "*"
+pytest = "*"
+matplotlib = "*"
+seaborn = "*"
+scikit-learn = "*"
 
 [requires]
-python_version = "3.7"
+python_version = "3.13"

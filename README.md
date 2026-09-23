@@ -138,3 +138,85 @@ The p-value was less than 0.05. We reject the null hypothesis showing there is a
 **Hypothesis Testing Market Fish Versus Wild Fish Conclusion**
 
 The fish captured for use in markets is statistically different from the fish found in the wild. The consequence of this is that the work done following this hypothesis testing such as (Linear Regression and Prediction Pipeline) will not have a use case in the population of fish as a whole but only for fish found in fish markets similar to where Aung Pyae's fish market data was collected.
+
+---
+
+# Лабораторная работа №1 — EDA FishGrow (ПетрГУ, 2026)
+
+**Студент:** Глеб Осипов  
+**Ветка:** `lab/01-eda`  
+**Исходный коммит:** `1f65547`
+
+## Команды запуска
+
+### 1. Создание окружения
+
+```bash
+pipenv sync --dev
+Установит Python 3.13 и все зависимости из Pipfile.lock.
+Время установки — 2–3 минуты.
+
+2. Запуск исходного приложения
+
+bash
+pipenv run python run.py
+Откройте в браузере: http://127.0.0.1:8050/
+
+Страницы:
+
+/ — главная (pages/index.py)
+/predictions — прогноз (pages/predictions.py)
+Остановить сервер: Ctrl+C.
+
+3. Запуск тестов
+
+bash
+pipenv run pytest tests/ -v
+Ожидаемо: 6 passed.
+
+4. Открытие блокнота EDA
+
+bash
+pipenv run jupyter lab
+Или откройте notebooks/01-eda.ipynb в VS Code и выберите ядро
+из venv проекта (pipenv --venv покажет путь).
+
+Перед запуском: Restart Kernel and Run All Cells.
+
+5. Проверка воспроизводимости
+
+Пошагово:
+
+pipenv sync --dev — окружение готово.
+pipenv run pytest tests/ -v — 6 passed.
+pipenv run jupyter lab → notebooks/01-eda.ipynb → Run All.
+Разбиение восстанавливается из reports/lab01-split.json
+(seed = 42, индексы train/val/test зафиксированы).
+Структура репозитория
+
+text
+.
+├── assets/data/Fish.csv        # датасет (158 строк)
+├── notebooks/01-eda.ipynb      # EDA: 7 шагов, 8 графиков
+├── src/data-checks.py          # переиспользуемые проверки качества
+├── tests/                      # pytest-тесты (6 штук)
+├── reports/
+│   ├── lab01-report.md         # финальный отчёт
+│   ├── lab01-data-passport.md  # паспорт данных
+│   ├── lab01-outliers.md       # IQR и MAD
+│   ├── lab01-hypotheses.md     # 3 гипотезы
+│   ├── lab01-decisions.md      # журнал решений
+│   ├── lab01-split.json        # разбиение 60/20/20
+│   ├── lab01-env.txt           # версии окружения
+│   └── figures/                # 8 графиков
+├── pages/, app.py, run.py      # исходное Dash-приложение
+└── Pipfile, Pipfile.lock       # зависимости
+Версии окружения
+
+reports/lab01-env.txt — Python, ключевые библиотеки
+reports/lab01-pip-freeze.txt — полный pip freeze
+Материалы сдачи
+
+Ветка: lab/01-eda
+Pull Request: https://github.com/tylerrussin/Fish-Dimensions-Regression-Analysis/pull/1
+Отчёт: reports/lab01-report.md
