@@ -164,3 +164,10 @@ jupyter notebook notebooks/01-eda.ipynb
 - `reports/lab01-report.md` — отчёт
 - `reports/figures/` — графики
 - `data/Fish.csv` — датасет
+
+
+## Тесты
+
+Запуск:
+```bash
+python -m pytest tests/ -v
