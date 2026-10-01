@@ -138,3 +138,36 @@ The p-value was less than 0.05. We reject the null hypothesis showing there is a
 **Hypothesis Testing Market Fish Versus Wild Fish Conclusion**
 
 The fish captured for use in markets is statistically different from the fish found in the wild. The consequence of this is that the work done following this hypothesis testing such as (Linear Regression and Prediction Pipeline) will not have a use case in the population of fish as a whole but only for fish found in fish markets similar to where Aung Pyae's fish market data was collected.
+
+## Лабораторная работа №1: EDA FishGrow
+
+### Установка
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+### Запуск приложения
+
+python run.py
+
+Приложение доступно на http://127.0.0.1:8050
+
+### Запуск EDA-блокнота
+
+jupyter notebook notebooks/01-eda.ipynb
+
+### Структура
+
+- `notebooks/01-eda.ipynb` — исследовательский анализ
+- `src/data_checks.py` — модуль проверок качества
+- `reports/lab01-report.md` — отчёт
+- `reports/figures/` — графики
+- `data/Fish.csv` — датасет
+
+
+## Тесты
+
+Запуск:
+```bash
+python -m pytest tests/ -v
