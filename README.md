@@ -15,6 +15,26 @@ A Dash web application has been created on Heroku servers to demonstrate the lin
 
 The interactive web application can be found [Here](https://fish-market-dataset-analysis.herokuapp.com/)
 
+## Лабораторная работа №1: воспроизводимый EDA
+
+Датасет находится в `assets/data/Fish.csv`, интерактивные графики и автоматический HTML-отчёт — в `reports/`.
+
+```powershell
+pipenv sync
+pipenv run python run.py
+```
+
+Откройте `notebooks/01-eda.ipynb` в VS Code, выберите Python-интерпретатор Pipenv-окружения как ядро и выполните ячейки сверху вниз. Чтобы открыть Jupyter Notebook из этого окружения, используйте `pipenv run jupyter notebook`.
+
+Для пересборки HTML-отчёта и запуска проверок из корня репозитория выполните:
+
+```powershell
+pipenv run python -m src.generate_html_report
+pipenv run python -m unittest discover -s tests -v
+```
+
+HTML-отчёт записывается в `reports/eda_report.html`. Контракт полей задан в `src/fish_schema.json`, а проверки таблицы реализованы в `src/data_checks.py`.
+
 # Overview of Statistical Analysis on Dataset
 
 **The Dataset**
