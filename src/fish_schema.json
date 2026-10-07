@@ -1,0 +1,59 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FishGrow fish measurements",
+  "description": "Row-level data contract. Unit metadata and observed-range guards are project extensions.",
+  "type": "object",
+  "required": ["Species", "Weight", "Length1", "Length2", "Length3", "Height", "Width"],
+  "additionalProperties": false,
+  "properties": {
+    "Species": {
+      "type": "string",
+      "enum": ["Bream", "Roach", "Whitefish", "Parkki", "Perch", "Pike", "Smelt"],
+      "x-unit": null,
+      "x-role": "feature"
+    },
+    "Weight": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 2000,
+      "x-min-positive": 5,
+      "x-unit": "g",
+      "x-role": "target"
+    },
+    "Length1": {
+      "type": "number",
+      "minimum": 5,
+      "maximum": 70,
+      "x-unit": "cm",
+      "x-role": "feature"
+    },
+    "Length2": {
+      "type": "number",
+      "minimum": 5,
+      "maximum": 75,
+      "x-unit": "cm",
+      "x-role": "feature"
+    },
+    "Length3": {
+      "type": "number",
+      "minimum": 5,
+      "maximum": 80,
+      "x-unit": "cm",
+      "x-role": "feature"
+    },
+    "Height": {
+      "type": "number",
+      "minimum": 1,
+      "maximum": 25,
+      "x-unit": "cm",
+      "x-role": "feature"
+    },
+    "Width": {
+      "type": "number",
+      "minimum": 0.5,
+      "maximum": 12,
+      "x-unit": "cm",
+      "x-role": "feature"
+    }
+  }
+}
