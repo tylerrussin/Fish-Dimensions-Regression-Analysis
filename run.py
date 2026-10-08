@@ -16,8 +16,7 @@ navbar = dbc.NavbarSimple(
         dbc.NavItem(dcc.Link('Predictions', href='/predictions', className='nav-link')), 
     ],
     sticky='top',
-    color='light', 
-    light=True, 
+    color='light',
     dark=False
 )
 
@@ -91,4 +90,4 @@ def display_page(pathname):
 
 # Run app
 if __name__ == '__main__':
-    app.run_server(debug=True)
+    app.run(debug=True)

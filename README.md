@@ -1,5 +1,22 @@
 # Fish Dimensions Regression Analysis
 
+### Использование
+
+Запуск ноутбука:
+```
+pipenv run jupyter notebook
+```
+
+Запуск интерактивного веб приложения:
+```
+pipenv run python run.py
+```
+
+Запуск генерации html странички:
+```
+pipenv run python src/html_report.py 
+```
+
 ### Introduction
 
 The Fish Dimension Regression Analysis repo aims to perform statistical analysis on the given fish market dataset. The analysis involves hypothesis testing and performing a multi-dimensional linear regression on the dataset.
