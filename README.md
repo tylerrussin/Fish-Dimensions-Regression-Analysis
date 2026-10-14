@@ -138,3 +138,81 @@ The p-value was less than 0.05. We reject the null hypothesis showing there is a
 **Hypothesis Testing Market Fish Versus Wild Fish Conclusion**
 
 The fish captured for use in markets is statistically different from the fish found in the wild. The consequence of this is that the work done following this hypothesis testing such as (Linear Regression and Prediction Pipeline) will not have a use case in the population of fish as a whole but only for fish found in fish markets similar to where Aung Pyae's fish market data was collected.
+
+## Лабораторная работа №1: EDA FishGrow
+
+### Установка
+
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+
+### Запуск приложения
+
+python run.py
+
+Приложение доступно на http://127.0.0.1:8050
+
+### Запуск EDA-блокнота
+
+jupyter notebook notebooks/01-eda.ipynb
+
+### Структура
+
+- `notebooks/01-eda.ipynb` — исследовательский анализ
+- `src/data_checks.py` — модуль проверок качества
+- `reports/lab01-report.md` — отчёт
+- `reports/figures/` — графики
+- `data/Fish.csv` — датасет
+
+
+## Тесты
+
+Запуск:
+```bash
+python -m pytest tests/ -v
+```
+
+
+### Лабораторная работа №2: Прогностическая модель и MLflow
+
+### Установка зависимостей
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install mlflow scikit-learn pytest
+```
+
+### Запуск обучения и экспериментов (E0–E4)
+Команда запускает обучение, 5-фолдовую кросс-валидацию и логирует результаты в MLflow:
+```bash
+python src/train.py
+```
+
+### Просмотр журнала экспериментов в MLflow
+Запуск локального интерфейса MLflow:
+```bash
+mlflow ui
+```
+После запуска интерфейс доступен по адресу: `[http://127.0.0.1:5000](http://127.0.0.1:5000)` (вкладка **Model training**).
+
+### Анализ ошибок и остатков
+Скрипт проверяет отрицательные прогнозы, выводит топ-5 ошибок и оценивает MAE по видам и категориям размера:
+```bash
+python src/evaluate.py
+```
+
+### Запуск unit-тестов
+Запуск проверок пайплайна и воспроизводимости:
+```bash
+pytest tests/test_model.py -v
+```
+
+### Структура проекта (Лабораторная №2)
+- `src/train.py` — сценарий обучения моделей E0–E4 и логирования в MLflow
+- `src/evaluate.py` — скрипт проверки физического смысла и анализа ошибок
+- `models/model-card.md` — паспорт и граничные условия лучшей модели (Ridge + $V_{\text{proxy}}$)
+- `reports/lab02-report.md` — итоговый отчёт со сводной таблицей метрик
+- `reports/figures/` — графики остатков моделей
+- `tests/test_model.py` — unit-тесты пайплайна
