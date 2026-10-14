@@ -171,3 +171,48 @@ jupyter notebook notebooks/01-eda.ipynb
 Запуск:
 ```bash
 python -m pytest tests/ -v
+```
+
+
+### Лабораторная работа №2: Прогностическая модель и MLflow
+
+### Установка зависимостей
+```bash
+python3 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+pip install mlflow scikit-learn pytest
+```
+
+### Запуск обучения и экспериментов (E0–E4)
+Команда запускает обучение, 5-фолдовую кросс-валидацию и логирует результаты в MLflow:
+```bash
+python src/train.py
+```
+
+### Просмотр журнала экспериментов в MLflow
+Запуск локального интерфейса MLflow:
+```bash
+mlflow ui
+```
+После запуска интерфейс доступен по адресу: `[http://127.0.0.1:5000](http://127.0.0.1:5000)` (вкладка **Model training**).
+
+### Анализ ошибок и остатков
+Скрипт проверяет отрицательные прогнозы, выводит топ-5 ошибок и оценивает MAE по видам и категориям размера:
+```bash
+python src/evaluate.py
+```
+
+### Запуск unit-тестов
+Запуск проверок пайплайна и воспроизводимости:
+```bash
+pytest tests/test_model.py -v
+```
+
+### Структура проекта (Лабораторная №2)
+- `src/train.py` — сценарий обучения моделей E0–E4 и логирования в MLflow
+- `src/evaluate.py` — скрипт проверки физического смысла и анализа ошибок
+- `models/model-card.md` — паспорт и граничные условия лучшей модели (Ridge + $V_{\text{proxy}}$)
+- `reports/lab02-report.md` — итоговый отчёт со сводной таблицей метрик
+- `reports/figures/` — графики остатков моделей
+- `tests/test_model.py` — unit-тесты пайплайна
