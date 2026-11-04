@@ -9,8 +9,15 @@ dash-bootstrap-components = "*"
 pandas = "*"
 statsmodels = "*"
 gunicorn = "*"
+scikit-learn = "*"
+numpy = "*"
+plotly = "*"
+matplotlib = "*"
+seaborn = "*"
+ydata-profiling = "*"
 
 [dev-packages]
+pytest = "*"
 
 [requires]
-python_version = "3.7"
+# python_version = "3.7"

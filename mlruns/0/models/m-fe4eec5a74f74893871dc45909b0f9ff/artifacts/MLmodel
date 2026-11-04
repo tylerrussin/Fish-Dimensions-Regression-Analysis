@@ -1,0 +1,23 @@
+artifact_path: file:///C:/Users/User/olymp/ArmyAnanas/lab/01-eda/mlruns/0/models/m-fe4eec5a74f74893871dc45909b0f9ff/artifacts
+flavors:
+  python_function:
+    env:
+      conda: conda.yaml
+      virtualenv: python_env.yaml
+    loader_module: mlflow.sklearn
+    model_path: model.pkl
+    predict_fn: predict
+    python_version: 3.11.5
+  sklearn:
+    code: null
+    pickled_model: model.pkl
+    serialization_format: cloudpickle
+    sklearn_version: 1.9.1
+    skops_trusted_types: null
+mlflow_version: 3.17.2
+model_id: m-fe4eec5a74f74893871dc45909b0f9ff
+model_size_bytes: 2968
+model_uuid: m-fe4eec5a74f74893871dc45909b0f9ff
+prompts: null
+run_id: ae7ef6adb26b48b4b24661d47d0b44d0
+utc_time_created: '2026-11-04 17:44:49.555527'

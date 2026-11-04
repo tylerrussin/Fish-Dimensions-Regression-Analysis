@@ -104,3 +104,13 @@ venv.bak/
 
 # mypy
 .mypy_cache/
+
+environment_lock.txt
+
+reports/eda_report.html
+
+__pycache__/
+
+.pytest_cache/
+
+*.pyc

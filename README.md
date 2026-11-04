@@ -138,3 +138,74 @@ The p-value was less than 0.05. We reject the null hypothesis showing there is a
 **Hypothesis Testing Market Fish Versus Wild Fish Conclusion**
 
 The fish captured for use in markets is statistically different from the fish found in the wild. The consequence of this is that the work done following this hypothesis testing such as (Linear Regression and Prediction Pipeline) will not have a use case in the population of fish as a whole but only for fish found in fish markets similar to where Aung Pyae's fish market data was collected.
+
+## Лабораторная работа №1. EDA платформы FishGrow
+
+### Команды запуска
+
+```bash
+# Установка зависимостей
+python -m pipenv sync --dev
+
+# Запуск приложения
+python -m pipenv run python run.py
+
+# Запуск Jupyter для анализа
+python -m pipenv run jupyter notebook
+```
+
+### Материалы
+
+- **Анализ**: `notebooks/01-eda.ipynb`
+- **Отчёт**: `reports/lab01-report.md`
+- **Проверки качества**: `src/data_checks.py`
+- **Графики**: `reports/figures/` (7 графиков)
+
+### Данные
+
+- **Источник**: `assets/data/Fish.csv`
+- **Объём**: 159 наблюдений, 7 признаков
+- **Целевая переменная**: `Weight` (масса рыбы, граммы)
+
+### Ключевые результаты EDA
+
+- `V_approx = Length3 · Height · Width` — сильный предиктор массы (R² = 0.98)
+- Виды значимо различаются по массе (ANOVA p < 0.001)
+- Weight скошен вправо — логарифмирование улучшит модель
+- Обработана аномалия `Weight = 0` (заменена медианой Roach)
+- 3 выброса (крупные Pike) оставлены с флагом `is_outlier`
+
+### Автор
+
+Шефер Анна Александровна, группа 22206
+
+---
+
+## Лабораторная работа №2. Прогностическая модель и MLflow
+
+### Команды запуска
+
+```bash
+# Обучение моделей E0–E4
+python src/train.py
+
+# Обучение без MLflow (для быстрой проверки)
+python src/train.py --no-mlflow
+
+# Анализ ошибок (остатки, 5 крупнейших, MAE по видам)
+python src/evaluate.py
+
+# Доверительные интервалы (Bootstrap)
+python src/bootstrap.py
+
+# Тесты
+pytest tests/ -v
+
+# Просмотр MLflow UI (в отдельном терминале)
+mlflow server --port 5000 --workers 1
+```
+### Артефакты
+- Отчёт: `reports/lab02-report.md`
+- Паспорт модели: `models/model-card.md`
+- Графики: `reports/figures/lab02/`
+- MLflow артефакты: `mlruns/`
