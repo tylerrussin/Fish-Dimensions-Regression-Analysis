@@ -178,3 +178,34 @@ python -m pipenv run jupyter notebook
 ### Автор
 
 Шефер Анна Александровна, группа 22206
+
+---
+
+## Лабораторная работа №2. Прогностическая модель и MLflow
+
+### Команды запуска
+
+```bash
+# Обучение моделей E0–E4
+python src/train.py
+
+# Обучение без MLflow (для быстрой проверки)
+python src/train.py --no-mlflow
+
+# Анализ ошибок (остатки, 5 крупнейших, MAE по видам)
+python src/evaluate.py
+
+# Доверительные интервалы (Bootstrap)
+python src/bootstrap.py
+
+# Тесты
+pytest tests/ -v
+
+# Просмотр MLflow UI (в отдельном терминале)
+mlflow server --port 5000 --workers 1
+```
+### Артефакты
+- Отчёт: `reports/lab02-report.md`
+- Паспорт модели: `models/model-card.md`
+- Графики: `reports/figures/lab02/`
+- MLflow артефакты: `mlruns/`

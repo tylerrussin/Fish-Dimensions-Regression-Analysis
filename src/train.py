@@ -269,6 +269,19 @@ if __name__ == "__main__":
         config, use_mlflow,
     ))
 
+    # === E1 (log): Проверка log(1+y) для E1 ===
+    y_train_log = np.log1p(y_train)
+    lr_log = Pipeline([
+        ("preprocess", build_preprocessor(numeric_cols, categorical_cols)),
+        ("regressor", LinearRegression()),
+    ])
+    lr_log.fit(X_train, y_train_log)
+    # Обратное преобразование
+    pred_log = np.expm1(lr_log.predict(X_test))
+    mae_log = mean_absolute_error(y_test, pred_log)
+    r2_log = r2_score(y_test, pred_log)
+    print(f"\nE1 (log target): Test MAE = {mae_log:.2f}, Test R² = {r2_log:.4f}")
+
     # === Итоговая таблица ===
     print("\n=== ИТОГОВАЯ ТАБЛИЦА ===")
     print(f"{'Модель':<25} {'Val MAE':>10} {'Val R²':>10} {'Test MAE':>10} {'Test R²':>10}")
